@@ -3,7 +3,18 @@ import streamlit as st
 import pandas as pd
 import re
 import os
+import openai   
+from dotenv import load_dotenv
+import plotly.express as px
 
+load_dotenv()
+
+client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+
+def get_dataset_path():
+    # Get the current script directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(current_dir, "customer_reviews.csv")
 
 # Helper function to clean text
 def clean_text(text):
