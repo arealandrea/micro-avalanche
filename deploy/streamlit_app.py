@@ -9,7 +9,7 @@ import plotly.express as px
 
 load_dotenv()
 
-client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+client = openai.OpenAI()
 
 def get_dataset_path():
     # Get the current script directory
